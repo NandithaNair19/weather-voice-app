@@ -9,6 +9,8 @@ function App() {
   const [listening, setListening] = useState(false);
   const [usedSpeech, setUsedSpeech] = useState(false);
 
+  const BACKEND_URL = "https://weather-voice-app-g7ai.onrender.com";
+
   const getWeather = async () => {
     if (!city.trim()) {
       alert("Please type or speak a place name");
@@ -19,7 +21,7 @@ function App() {
     setWeather(null);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/weather", {
+      const response = await fetch(`${BACKEND_URL}/weather`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -49,7 +51,7 @@ function App() {
     setListening(true);
 
     try {
-      const tokenResponse = await fetch("http://127.0.0.1:8000/azure-token");
+      const tokenResponse = await fetch(`${BACKEND_URL}/azure-token`);
       const tokenData = await tokenResponse.json();
 
       if (tokenData.error) {
@@ -92,7 +94,7 @@ function App() {
 
   const speakWeather = async (data) => {
     try {
-      const tokenResponse = await fetch("http://127.0.0.1:8000/azure-token");
+      const tokenResponse = await fetch(`${BACKEND_URL}/azure-token`);
       const tokenData = await tokenResponse.json();
 
       const speechConfig = SpeechSDK.SpeechConfig.fromAuthorizationToken(
