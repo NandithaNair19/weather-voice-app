@@ -6,7 +6,7 @@ An AI-powered full-stack weather voice application that lets users type or speak
 
 # Live Demo
 
-Frontend: Add your Vercel link here  
+Frontend: https://weather-voice-app.vercel.app/ 
 Backend: https://weather-voice-app-g7ai.onrender.com
 
 ---
