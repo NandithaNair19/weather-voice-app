@@ -1,0 +1,170 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: linear-gradient(135deg, #dbeafe, #fef3c7, #fce7f3);
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.card {
+  width: 100%;
+  max-width: 850px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(18px);
+  border-radius: 28px;
+  padding: 42px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+  margin: 0;
+  font-size: 54px;
+  color: #1f2937;
+}
+
+.subtitle {
+  color: #6b7280;
+  font-size: 18px;
+  margin: 14px 0 32px;
+}
+
+.search-box {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+input {
+  width: 310px;
+  padding: 15px 18px;
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  font-size: 16px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #60a5fa;
+}
+
+button {
+  border: none;
+  border-radius: 16px;
+  padding: 15px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+.mic-btn {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.weather-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.weather-card {
+  margin-top: 50px;
+  background: white;
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.weather-card h2 {
+  margin: 0;
+  color: #374151;
+  font-size: 28px;
+}
+
+.temp {
+  font-size: 72px;
+  font-weight: 800;
+  color: #2563eb;
+  margin: 18px 0 4px;
+}
+
+.condition {
+  margin-top: 10px;
+  margin-bottom: 35px;
+  font-size: 24px;
+  color: #6b7280;
+  text-transform: capitalize;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.details div {
+  background: #f9fafb;
+  padding: 28px 18px;
+  border-radius: 20px;
+}
+
+.details span {
+  display: block;
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.details strong {
+  font-size: 22px;
+  color: #111827;
+}
+
+.speak-again {
+  margin-top: 26px;
+  background: #ecfdf5;
+  color: #047857;
+}
+
+@media (max-width: 650px) {
+  .card {
+    padding: 28px;
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  .search-box {
+    flex-direction: column;
+  }
+
+  .details {
+    grid-template-columns: 1fr;
+  }
+
+  .temp {
+    font-size: 56px;
+  }
+}
