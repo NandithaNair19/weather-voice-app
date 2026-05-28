@@ -24,81 +24,182 @@ Backend: https://weather-voice-app-g7ai.onrender.com
 - Text-to-Speech weather reading using Azure Speech
 - Conditional speaking:
   - app speaks only when user uses microphone
-- Responsive glassmorphism UI
 - FastAPI backend with secure API handling
 - React + Vite frontend
 - Publicly deployed web app
 - GitHub Actions CI/CD
-- Mobile app conversion using Capacitor
-
+- 
 ---
 
 # Tech Stack
 
-## Frontend
-- React
-- Vite
-- CSS
-- Microsoft Cognitive Services Speech SDK
-- Vercel
-
-## Backend
-- FastAPI
-- Python
-- WeatherAPI.com
-- Azure Speech Services
-- Render
-
-## Mobile
-- Capacitor
-- Android Studio
-- Xcode
+| Category | Technology | Version |
+|---|---|---|
+| Frontend | React | 18+ |
+| Frontend Build Tool | Vite | 5+ |
+| Styling | CSS3 | Latest |
+| Backend | FastAPI | Latest |
+| Backend Language | Python | 3.11+ |
+| Speech Services | Azure Cognitive Services | F0 Tier |
+| Weather API | WeatherAPI.com | Free Tier |
+| Deployment | Vercel | Latest |
+| Backend Hosting | Render | Latest |
+| CI/CD | GitHub Actions | Latest |
+| Mobile Conversion | Capacitor | Latest |
+| Package Manager | npm | 10+ |
+| Version Control | Git & GitHub | Latest |
 
 ---
 
-# Project Structure
+# 📁 Project Structure
 
 ```text
 weather-voice-app/
 ├── backend/
 │   ├── main.py
 │   ├── requirements.txt
-│   └── .env.example
+│   ├── .env
+│   └── venv/
+│
 ├── frontend/
 │   ├── src/
 │   │   ├── App.jsx
 │   │   └── App.css
+│   │
+│   ├── public/
 │   ├── package.json
+│   ├── vite.config.js
 │   └── capacitor.config.json
+│
 ├── .github/
 │   └── workflows/
 │       └── ci.yml
-└── README.md
+│
+├── README.md
+├── run.sh
+└── setup.sh
 ```
+---
+
+# ⚙️ Local Development Setup
+
+## 📌 Prerequisites
+
+Before running this project, install:
+
+| Software | Version |
+|---|---|
+| Python | 3.11+ |
+| Node.js | 20+ |
+| npm | 10+ |
+| Git | Latest |
+| VS Code | Recommended |
 
 ---
 
-# Environment Variables
+# 🔑 API Key Setup
 
-Create a `.env` file inside the `backend` folder:
+You need:
+
+1. WeatherAPI key
+2. Azure Speech Service key
+
+---
+
+## 🌤️ WeatherAPI Setup
+
+1. Visit:
+https://www.weatherapi.com/
+
+2. Create account
+
+3. Generate API key
+
+---
+
+## 🎤 Azure Speech Service Setup
+
+1. Open Azure Portal
+
+2. Create:
+- Speech Service Resource
+
+3. Select:
+- Pricing Tier: F0 (Free)
+
+4. Copy:
+- Speech Key
+- Region
+
+---
+
+# 🔐 Environment Variables
+
+Create:
+
+```text
+backend/.env
+```
+
+Add:
 
 ```env
-WEATHER_API_KEY=your_weatherapi_key
+WEATHER_API_KEY=your_weather_api_key
 AZURE_SPEECH_KEY=your_azure_speech_key
 AZURE_SPEECH_REGION=your_azure_region
 ```
 
 ---
 
-# Run Locally
+# 🛠️ Backend Setup
 
-## Backend
+## Step 1 — Navigate to Backend
 
 ```bash
 cd backend
+```
+
+---
+
+## Step 2 — Create Virtual Environment
+
+Why?
+
+A virtual environment isolates project dependencies from your global Python installation.
+
+```bash
 python3 -m venv venv
+```
+
+---
+
+## Step 3 — Activate Virtual Environment
+
+### macOS/Linux
+
+```bash
 source venv/bin/activate
+```
+
+### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+---
+
+## Step 4 — Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
+
+---
+
+## Step 5 — Start FastAPI Server
+
+```bash
 uvicorn main:app --reload
 ```
 
@@ -110,11 +211,27 @@ http://127.0.0.1:8000
 
 ---
 
-## Frontend
+# 🎨 Frontend Setup
+
+## Step 1 — Navigate to Frontend
 
 ```bash
 cd frontend
+```
+
+---
+
+## Step 2 — Install Dependencies
+
+```bash
 npm install
+```
+
+---
+
+## Step 3 — Start Frontend
+
+```bash
 npm run dev
 ```
 
@@ -126,15 +243,21 @@ http://localhost:5173
 
 ---
 
-# API Endpoints
+# 📡 API Documentation
 
-## Health Check
+---
+
+# GET /
+
+Health check route.
+
+## Example Request
 
 ```http
 GET /
 ```
 
-Returns:
+## Example Response
 
 ```json
 {
@@ -144,13 +267,11 @@ Returns:
 
 ---
 
-## Get Weather
+# POST /weather
 
-```http
-POST /weather
-```
+Returns weather information.
 
-Request:
+## Request
 
 ```json
 {
@@ -158,74 +279,118 @@ Request:
 }
 ```
 
----
+## Response
 
-## Azure Token
-
-```http
-GET /azure-token
+```json
+{
+  "city": "Bangalore",
+  "country": "India",
+  "temperature": 29,
+  "feels_like": 32,
+  "humidity": 68,
+  "wind_speed": 15,
+  "condition": "Partly cloudy"
+}
 ```
 
-Returns a temporary Azure Speech token for frontend STT/TTS.
+---
+
+# GET /azure-token
+
+Returns temporary Azure Speech token.
+
+## Example Response
+
+```json
+{
+  "token": "azure_token_here",
+  "region": "centralindia"
+}
+```
 
 ---
 
-# Deployment
+# 🎤 Voice Recognition & AI Workflow
 
-## Backend Deployment (Render)
-
-Render settings:
+## Speech-to-Text Flow
 
 ```text
-Root Directory: backend
-Build Command: pip install -r requirements.txt
-Start Command: uvicorn main:app --host 0.0.0.0 --port $PORT
+User Speech
+     ↓
+Azure Speech SDK
+     ↓
+Text Conversion
+     ↓
+Weather API Request
 ```
 
 ---
 
-## Frontend Deployment (Vercel)
-
-Vercel settings:
+## Text-to-Speech Flow
 
 ```text
-Root Directory: frontend
-Framework Preset: Vite
-Build Command: npm run build
-Output Directory: dist
+Weather Response
+       ↓
+Azure Speech Synthesis
+       ↓
+Voice Output
 ```
 
 ---
 
-# Mobile App Conversion
+# 🧪 API Testing with Postman
 
-This project is being converted into a mobile app using Capacitor.
+## Test Weather Endpoint
 
-## Android
+### Method
 
-```bash
-cd frontend
-npm install @capacitor/core @capacitor/cli
-npx cap init
-npm run build
-npm install @capacitor/android
-npx cap add android
-npx cap sync android
-npx cap open android
+```text
+POST
+```
+
+### URL
+
+```text
+https://weather-voice-app-g7ai.onrender.com/weather
+```
+
+### Body
+
+```json
+{
+  "city": "Delhi"
+}
 ```
 
 ---
 
-## iOS
-
-```bash
-npm install @capacitor/ios
-npx cap add ios
-npx cap sync ios
-npx cap open ios
-```
+# ☁️ Deployment Guide
 
 ---
+
+## Frontend
+
+Deployed using **[Vercel](VERCEL_DEPLOYMENT.md)**
+
+## Backend
+
+Deployed using **[Render](RENDER_DEPLOYMENT.md)**
+---
+
+# 🔄 CI/CD Workflow
+
+GitHub Actions automatically:
+
+- installs backend dependencies
+- validates FastAPI imports
+- installs frontend dependencies
+- performs production Vite build
+
+Workflow file:
+
+```text
+.github/workflows/ci.yml
+```
 
 # CI/CD
 
