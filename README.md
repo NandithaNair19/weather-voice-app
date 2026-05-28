@@ -364,9 +364,7 @@ https://weather-voice-app-g7ai.onrender.com/weather
 
 ---
 
-# ☁️ Deployment Guide
-
----
+# 🚀 Deployment
 
 ## Frontend
 
@@ -375,22 +373,7 @@ Deployed using **[Vercel](VERCEL_DEPLOYMENT.md)**
 ## Backend
 
 Deployed using **[Render](RENDER_DEPLOYMENT.md)**
----
 
-# 🔄 CI/CD Workflow
-
-GitHub Actions automatically:
-
-- installs backend dependencies
-- validates FastAPI imports
-- installs frontend dependencies
-- performs production Vite build
-
-Workflow file:
-
-```text
-.github/workflows/ci.yml
-```
 
 # CI/CD
 
