@@ -11,25 +11,22 @@ Backend: https://weather-voice-app-g7ai.onrender.com
 
 ---
 
-# Features
+# ✨ Features
 
-- Search weather by city, town, village, or country
-- Voice input using Azure Speech-to-Text
-- Weather response with:
-  - temperature
-  - feels-like
-  - humidity
-  - wind speed
-  - weather condition
-- Text-to-Speech weather reading using Azure Speech
-- Conditional speaking:
-  - app speaks only when user uses microphone
-- FastAPI backend with secure API handling
-- React + Vite frontend
-- Publicly deployed web app
-- GitHub Actions CI/CD
-- 
----
+- 🌤️ Real-time weather information
+- 🎤 Voice-based location search
+- 🔊 AI-generated weather narration
+- 🌍 Global weather support
+- 📱 Responsive modern UI
+- ☁️ Azure Speech Services integration
+- ⚡ FastAPI backend APIs
+- ⚛️ React + Vite frontend
+- 🚀 Deployment-ready architecture
+- 🔄 CI/CD pipeline support
+- 🧪 API testing support
+- 🎨 Beautiful glassmorphism UI
+
+___
 
 # Tech Stack
 
