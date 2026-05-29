@@ -386,6 +386,75 @@ GitHub Actions workflow checks:
 
 ---
 
+# 💰 Cost Breakdown
+
+This project is designed to run almost completely on free-tier services for development, testing, and student/demo usage.
+
+---
+
+# 📦 Services Used
+
+| Service | Purpose | Free Tier | Estimated Cost |
+|---|---|---|---|
+| React + Vite | Frontend | Fully Free | $0 |
+| FastAPI | Backend Framework | Fully Free | $0 |
+| WeatherAPI.com | Real-time weather data | Free developer tier | $0 |
+| Microsoft Azure Speech Services | Speech-to-Text + Text-to-Speech | F0 Free Tier | $0 |
+| GitHub | Version Control + CI/CD | Free | $0 |
+| GitHub Actions | CI/CD Pipeline | 2000 free minutes/month | $0 |
+| Render | Backend Deployment | Free Tier | $0 |
+| Vercel | Frontend Deployment | Free Tier | $0 |
+
+---
+
+# ☁️ Azure Speech Services Free Tier
+
+The application uses Microsoft Azure AI Speech Services for:
+
+- 🎙️ Speech-to-Text (STT)
+- 🔊 Text-to-Speech (TTS)
+
+### Free Tier Includes
+
+| Feature | Free Usage |
+|---|---|
+| Speech-to-Text | 5 audio hours/month |
+| Neural Text-to-Speech | 500,000 characters/month |
+
+
+---
+
+# 🌦️ WeatherAPI.com Free Tier
+
+The application fetches live weather data using WeatherAPI.com.
+
+### Free Tier Includes
+
+| Feature | Limit |
+|---|---|
+| API Requests | ~1 million/month |
+| Real-time Weather | Included |
+| Global Locations | Included |
+
+This is more than enough for development and demo usage.
+
+
+---
+
+# 📊 Expected Monthly Cost
+
+| Usage Type | Estimated Cost |
+|---|---|
+| Student / Demo Usage | $0 |
+| Small Portfolio Project | $0 |
+| Moderate Traffic | Usually still free |
+
+---
+
+# 📝 Notes
+
+- The project is fully usable under free-tier limits.
+- Costs may only arise if deployed at very large production scale.
 # Security
 
 - API keys are stored only in backend environment variables
