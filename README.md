@@ -90,7 +90,7 @@ Follow the steps below carefully to run the Weather Voice App locally on your sy
 
 ---
 
-# 1️⃣ Clone the Repository
+## 1️⃣ Clone the Repository
 
 First, open Terminal and run:
 
@@ -108,7 +108,7 @@ cd weather-voice-app
 
 ---
 
-# 📂 Project Structure
+## 📂 Project Structure
 
 The project contains:
 
@@ -180,7 +180,7 @@ This installs:
 
 ---
 
-# 🔑 API Key Setup
+## 🔑 API Key Setup
 
 The application requires:
 
@@ -189,7 +189,7 @@ The application requires:
 
 ---
 
-# 🌤️ WeatherAPI Setup
+## 🌤️ WeatherAPI Setup
 
 WeatherAPI is used to fetch real-time weather information.
 
@@ -225,7 +225,7 @@ abc123xyz456
 
 ---
 
-# 🎤 Azure Speech Service Setup
+## 🎤 Azure Speech Service Setup
 
 Azure Speech Services are used for:
 
@@ -282,7 +282,7 @@ centralindia
 
 ---
 
-# 🔐 Create .env File
+## 🔐 Create .env File
 
 Inside the backend folder, create a file named:
 
@@ -308,7 +308,7 @@ AZURE_SPEECH_REGION=centralindia
 
 ---
 
-# 🚀 Run Backend Server
+## 🚀 Run Backend Server
 
 Start the FastAPI backend:
 
