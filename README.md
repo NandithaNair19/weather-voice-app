@@ -45,7 +45,6 @@ Backend: https://weather-voice-app-g7ai.onrender.com
 | Deployment | Vercel | Latest |
 | Backend Hosting | Render | Latest |
 | CI/CD | GitHub Actions | Latest |
-| Mobile Conversion | Capacitor | Latest |
 | Package Manager | npm | 10+ |
 | Version Control | Git & GitHub | Latest |
 
@@ -81,79 +80,46 @@ weather-voice-app/
 ```
 ---
 
-# ⚙️ Local Development Setup
+# ⚙️ Setup Instructions
 
-## 📌 Prerequisites
-
-Before running this project, install:
-
-| Software | Version |
-|---|---|
-| Python | 3.11+ |
-| Node.js | 20+ |
-| npm | 10+ |
-| Git | Latest |
-| VS Code | Recommended |
+Follow the steps below carefully to run the Weather Voice App locally on your system.
 
 ---
 
-# 🔑 API Key Setup
+# 1️⃣ Clone the Repository
 
-You need:
+First, open Terminal and run:
 
-1. WeatherAPI key
-2. Azure Speech Service key
+```bash
+git clone https://github.com/your-username/weather-voice-app.git
+```
 
----
+This downloads the complete project to your computer.
 
-## 🌤️ WeatherAPI Setup
+Now move into the project folder:
 
-1. Visit:
-https://www.weatherapi.com/
-
-2. Create account
-
-3. Generate API key
+```bash
+cd weather-voice-app
+```
 
 ---
 
-## 🎤 Azure Speech Service Setup
+# 📂 Project Structure
 
-1. Open Azure Portal
-
-2. Create:
-- Speech Service Resource
-
-3. Select:
-- Pricing Tier: F0 (Free)
-
-4. Copy:
-- Speech Key
-- Region
-
----
-
-# 🔐 Environment Variables
-
-Create:
+The project contains:
 
 ```text
-backend/.env
+backend/   → FastAPI backend
+frontend/  → React frontend
 ```
 
-Add:
-
-```env
-WEATHER_API_KEY=your_weather_api_key
-AZURE_SPEECH_KEY=your_azure_speech_key
-AZURE_SPEECH_REGION=your_azure_region
-```
+Both frontend and backend must run separately.
 
 ---
 
-# 🛠️ Backend Setup
+# 🔹 Backend Setup (FastAPI)
 
-## Step 1 — Navigate to Backend
+## Step 1 — Move into Backend Folder
 
 ```bash
 cd backend
@@ -163,17 +129,13 @@ cd backend
 
 ## Step 2 — Create Virtual Environment
 
-Why?
-
-A virtual environment isolates project dependencies from your global Python installation.
+Create a Python virtual environment:
 
 ```bash
 python3 -m venv venv
 ```
 
----
-
-## Step 3 — Activate Virtual Environment
+Activate it:
 
 ### macOS/Linux
 
@@ -187,23 +149,176 @@ source venv/bin/activate
 venv\Scripts\activate
 ```
 
+After activation, your terminal should show:
+
+```text
+(venv)
+```
+
 ---
 
-## Step 4 — Install Dependencies
+## Step 3 — Install Backend Dependencies
+
+Install all required Python packages:
 
 ```bash
 pip install -r requirements.txt
 ```
 
+This installs:
+
+- FastAPI
+- Uvicorn
+- Requests
+- python-dotenv
+- CORS middleware dependencies
+- and other required backend libraries
+
 ---
 
-## Step 5 — Start FastAPI Server
+# 🔑 API Key Setup
+
+The application requires:
+
+1️⃣ WeatherAPI key  
+2️⃣ Azure Speech Service key
+
+---
+
+# 🌤️ WeatherAPI Setup
+
+WeatherAPI is used to fetch real-time weather information.
+
+It provides:
+
+- temperature
+- humidity
+- wind speed
+- weather conditions
+- feels-like temperature
+
+## Steps to get API key
+
+Go to:
+
+```text
+https://www.weatherapi.com/
+```
+
+Create a free account.
+
+After logging in:
+
+- Open dashboard
+- Generate API key
+- Copy the API key
+
+Example:
+
+```text
+abc123xyz456
+```
+
+---
+
+# 🎤 Azure Speech Service Setup
+
+Azure Speech Services are used for:
+
+- Speech-to-Text (STT)
+- Text-to-Speech (TTS)
+
+This allows users to:
+
+- speak city names
+- hear weather results spoken aloud
+
+---
+
+## Steps to Create Azure Speech Service
+
+Open Azure Portal:
+
+```text
+https://portal.azure.com
+```
+
+Create:
+
+```text
+Speech Service Resource
+```
+
+Select:
+
+```text
+Pricing Tier → F0 (Free)
+```
+
+The free tier is enough for development and demo usage.
+
+After creation:
+
+Open:
+
+```text
+Keys and Endpoint
+```
+
+Copy:
+
+- Speech Key
+- Region
+
+Example region:
+
+```text
+centralindia
+```
+
+---
+
+# 🔐 Create .env File
+
+Inside the backend folder, create a file named:
+
+```text
+.env
+```
+
+Add:
+
+```env
+WEATHER_API_KEY=your_weather_api_key
+AZURE_SPEECH_KEY=your_azure_speech_key
+AZURE_SPEECH_REGION=your_azure_region
+```
+
+Example:
+
+```env
+WEATHER_API_KEY=abc123xyz456
+AZURE_SPEECH_KEY=xxxxxxxxxxxxxxxx
+AZURE_SPEECH_REGION=centralindia
+```
+
+---
+
+# 🚀 Run Backend Server
+
+Start the FastAPI backend:
 
 ```bash
 uvicorn main:app --reload
 ```
 
-Backend runs on:
+If successful, you should see:
+
+```text
+Uvicorn running on http://127.0.0.1:8000
+```
+
+Backend now runs at:
 
 ```text
 http://127.0.0.1:8000
@@ -211,9 +326,15 @@ http://127.0.0.1:8000
 
 ---
 
-# 🎨 Frontend Setup
+# 🔹 Frontend Setup (React + Vite)
 
-## Step 1 — Navigate to Frontend
+Open a NEW terminal window while keeping backend running.
+
+---
+
+## Step 1 — Move into Frontend Folder
+
+From project root:
 
 ```bash
 cd frontend
@@ -221,29 +342,111 @@ cd frontend
 
 ---
 
-## Step 2 — Install Dependencies
+## Step 2 — Install Frontend Dependencies
+
+Install all required npm packages:
 
 ```bash
 npm install
 ```
 
+This installs:
+
+- React
+- Vite
+- Azure Speech SDK
+- frontend dependencies
+- required UI libraries
+
 ---
 
 ## Step 3 — Start Frontend
+
+Run:
 
 ```bash
 npm run dev
 ```
 
-Frontend runs on:
+After a few seconds, terminal shows:
 
 ```text
 http://localhost:5173
 ```
 
+Open this URL in browser.
+
 ---
 
-# 📡 API Documentation
+# 🎤 Azure Speech SDK
+
+This project uses:
+
+```text
+microsoft-cognitiveservices-speech-sdk
+```
+
+for:
+
+- Azure Speech-to-Text
+- Azure Text-to-Speech
+
+Install manually if required:
+
+```bash
+npm install microsoft-cognitiveservices-speech-sdk
+```
+
+---
+
+# 🚀 Running the Full Application
+
+You MUST keep BOTH running:
+
+| Terminal | Purpose |
+|---|---|
+| Terminal 1 | FastAPI Backend |
+| Terminal 2 | React Frontend |
+
+---
+
+# ✅ How to Use the Weather Voice App
+
+1️⃣ Open frontend in browser
+
+2️⃣ Type city name  
+OR
+
+3️⃣ Click:
+
+```text
+🎤 Speak
+```
+
+4️⃣ Speak a location
+
+Example:
+
+```text
+Bangalore
+```
+
+5️⃣ Click:
+
+```text
+Get Weather
+```
+
+6️⃣ Weather details appear instantly.
+
+If speech input was used:
+
+- Azure Speech automatically reads weather aloud.
+
+---
+
+
+# 📡 API Checking
 
 ---
 
