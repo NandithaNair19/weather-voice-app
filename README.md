@@ -392,7 +392,7 @@ This project is designed to run almost completely on free-tier services for deve
 
 ---
 
-# 📦 Services Used
+## 📦 Services Used
 
 | Service | Purpose | Free Tier | Estimated Cost |
 |---|---|---|---|
@@ -407,7 +407,7 @@ This project is designed to run almost completely on free-tier services for deve
 
 ---
 
-# ☁️ Azure Speech Services Free Tier
+## ☁️ Azure Speech Services Free Tier
 
 The application uses Microsoft Azure AI Speech Services for:
 
@@ -424,7 +424,7 @@ The application uses Microsoft Azure AI Speech Services for:
 
 ---
 
-# 🌦️ WeatherAPI.com Free Tier
+## 🌦️ WeatherAPI.com Free Tier
 
 The application fetches live weather data using WeatherAPI.com.
 
@@ -441,7 +441,7 @@ This is more than enough for development and demo usage.
 
 ---
 
-# 📊 Expected Monthly Cost
+## 📊 Expected Monthly Cost
 
 | Usage Type | Estimated Cost |
 |---|---|
@@ -451,7 +451,7 @@ This is more than enough for development and demo usage.
 
 ---
 
-# 📝 Notes
+## 📝 Notes
 
 - The project is fully usable under free-tier limits.
 - Costs may only arise if deployed at very large production scale.
