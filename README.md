@@ -662,6 +662,9 @@ This is more than enough for development and demo usage.
 
 - The project is fully usable under free-tier limits.
 - Costs may only arise if deployed at very large production scale.
+
+---
+
 # Security
 
 - API keys are stored only in backend environment variables
