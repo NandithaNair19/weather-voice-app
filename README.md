@@ -50,6 +50,13 @@ Backend: https://weather-voice-app-g7ai.onrender.com
 
 ---
 
+# 🏗️ System Architecture
+
+The diagram below shows the complete workflow of the Weather Voice App, including user input, frontend processing, backend API calls, WeatherAPI integration, and Azure Speech Services.
+
+![Weather Voice App Architecture](frontend/public/images/architecture.png)
+___
+
 # 📁 Project Structure
 
 ```text
